@@ -87,6 +87,7 @@ class Server
 
         $port = 80;
         $tmp = explode(':',$host);
+        $host = $tmp[0];
         if (isset($tmp[1]))
         {
             $port = intval($tmp[1]);
