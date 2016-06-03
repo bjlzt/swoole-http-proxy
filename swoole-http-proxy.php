@@ -19,7 +19,7 @@
 class Server
 {
     private $serv;
-    private $data = array('fd'=>'data');//打印数据
+    private $data = array('fd'=>'data');//打印数据，key为连接fd，value为收到的数据
     private $forwardMap_ = array('www.aaa.com:234'=>'wwww.bbb.com');//把发往key的请求转发到value
     public function __construct() 
     {
@@ -94,6 +94,7 @@ class Server
         $port = ($port > 0) ? $port : 80;
 
         $headers[0] = $method.' '.$req.' '.$httpv;
+        //php环境可能没有安装zlib/deflate扩展，所以Accept-Encoding设为默认
         foreach($headers as $k=>$v)
         {
             if (stripos($v,'Accept-Encoding') !== false)
