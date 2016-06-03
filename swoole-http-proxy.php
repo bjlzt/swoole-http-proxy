@@ -202,8 +202,8 @@ class Server
                 $data = $ret;
             }
             echo '====================================return====================================',PHP_EOL;
-            print_r($data);
         }
+        print_r($data);
     } 
     public function onClose( $serv, $fd, $from_id ) 
     {
